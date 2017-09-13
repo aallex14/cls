@@ -66,7 +66,7 @@ def fcn_loss (logits, labels):
 
         #hit = tf.cast(tf.nn.in_top_k(logits, labels, 1, name="accuracy"), tf.float32)
         # return [tf.reduce_mean(l, name='loss')] #, tf.reduce_mean(hit, name='accuracy_total')]
-        return [tf.reduce_mean(l, name='loss'),]
+        return tf.reduce_mean(l, name='loss')
     pass
 
 def training (loss, rate):
