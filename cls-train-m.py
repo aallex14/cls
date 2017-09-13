@@ -62,7 +62,7 @@ def fcn_loss (logits, labels):
         logits = tf.reshape(logits, (-1,))
         labels = tf.reshape(labels, (-1,))
 
-        l = tf.nn.l2loss(logits, labels)
+        l = tf.nn.l2_loss(logits, labels)
 
         #hit = tf.cast(tf.nn.in_top_k(logits, labels, 1, name="accuracy"), tf.float32)
         return [tf.reduce_mean(l, name='loss')] #, tf.reduce_mean(hit, name='accuracy_total')]
