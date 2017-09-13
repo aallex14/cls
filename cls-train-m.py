@@ -62,7 +62,7 @@ def fcn_loss (logits, labels):
         logits = tf.reshape(logits, (-1,))
         labels = tf.reshape(labels, (-1,))
 
-        l = tf.nn.l2_loss(logits, labels)
+        l = tf.nn.l2_loss(logits - labels)
 
         #hit = tf.cast(tf.nn.in_top_k(logits, labels, 1, name="accuracy"), tf.float32)
         return [tf.reduce_mean(l, name='loss')] #, tf.reduce_mean(hit, name='accuracy_total')]
@@ -194,7 +194,7 @@ def run_training ():
                 if te_stream and (step + 1) % FLAGS.test_steps == 0:
                     # evaluation
                     te_stream.reset()
-                    cmatrix = np.zeros((FLAGS.classes,FLAGS.classes))
+                    # cmatrix = np.zeros((FLAGS.classes,FLAGS.classes))
                     total = 0
                     batch_sum2 = 0
                     loss_sum2 = 0
