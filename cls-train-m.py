@@ -210,7 +210,7 @@ def run_training ():
                                      Y_: labels}
 
                         # loss_value, accuracy_value,ll = sess.run([loss, accuracy,logits], feed_dict=feed_dict)
-                        loss_value, ll = sess.run([loss, logits), feed_dict = feed_dict)
+                        loss_value, ll = sess.run([loss, logits], feed_dict = feed_dict)
 
                         batch_sum2 += bs
                         # cmatrix[int(labels), np.where(ll == np.max(ll))[1]] += np.divide(float(1),np.size(np.where(ll == np.max(ll))[1]))
